@@ -14,18 +14,42 @@
             ></a>
           </li>
           <li>
-                 <button  class="mr-4 hover:underline md:mr-6">Data Siswa</button>>
+                 <button  class="mr-4 hover:underline md:mr-6">Tambah Siswa</button>
           </li>
         </ul>
       </div>
   
-   
-      <div class="card shadow-md">
-        <form @submit.prevent="addsiswa" method="post">
-          <input type="text" v-model="addsiswas.nama" placeholder="nama">
-          <input type="text" v-model="addsiswas.kelas" placeholder="kelas">
-          <input type="text" v-model="addsiswas.alamat" placeholder="alamat">
-          <button>klik</button>
+   <br>
+      <div class="card shadow-md pl-4 pr-4"><br>
+        <form @submit.prevent="addsiswa" class="pl-4 pr-4" method="post">
+          <div>
+            <label
+              for="email"
+              class="float-left block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >Masukan Nama</label
+            >
+            <input type="text" v-model="addsiswas.nama"   class="mb-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"><br>
+        </div>
+        <div>
+          <label
+            for="email"
+            class="float-left block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Masukan kelas</label
+          >
+          <input type="text" v-model="addsiswas.kelas"   class="mb-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"><br>
+      </div>
+      <div>
+        <label
+          for="email"
+          class="float-left block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >Masukan alamat</label
+        >
+        <input type="text" v-model="addsiswas.alamat"   class="mb-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"><br>
+    </div>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+      Simpan
+    </button>
+    <br><br>
       </form>
       </div>
     </div>

@@ -67,7 +67,6 @@ export default {
             nama:null,
             kelas:null,
             alamat:null,
-            add:null
           }
         }
     },
@@ -75,13 +74,21 @@ export default {
         ...mapActions('siswa',['fecteditsiswa']),
         editsiswa(params){
            this.fecteditsiswa(this.editsiswas)
-        }
+        },
+        // call() {
+        //   alert('hello', this.singlesiswa.nama)
+        // }
     },
     computed:{
         ...mapState('siswa',['singlesiswa'])
     },
     mounted() {
-        this.$store.dispatch("siswa/fetchsiswaid", this.id)
+      this.$store.dispatch("siswa/fetchsiswaid", this.id)
+      // this.call()
+      // console.log('singlesiswa', this.singlesiswa)
+      this.editsiswas.nama = this.singlesiswa.nama
+      this.editsiswas.kelas = this.singlesiswa.kelas
+      this.editsiswas.alamat = this.singlesiswa.alamat
   },
   
   setup(props, context) {

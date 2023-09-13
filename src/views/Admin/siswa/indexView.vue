@@ -25,6 +25,9 @@
       <table class="w-full text-sm text-left">
           <thead class="text-xs text-white uppercase bg-blue-600 border-b border-blue-400 dark:text-white">
               <tr>
+                <th scope="col" class="px-6 py-3">
+                  No
+                </th>
                   <th scope="col" class="px-6 py-3">
                       Nama
                   </th>
@@ -40,7 +43,10 @@
               </tr>
           </thead>
           <tbody>
-              <tr v-for="item in siswa" :key="item.id">
+              <tr v-for="(item,index) in siswa" :key="item.id">
+                <td class="px-6 py-4">
+                    {{ index+1 }}
+                </td>
                   <th scope="row" class="px-6 py-4 font-medium  whitespace-nowrap dark:text-blue-100">
                       {{ item.nama }}
                   </th>
@@ -51,6 +57,9 @@
                     {{ item.alamat }}
                   </td>
                   <td class="px-6 py-4">
+                    <router-link :to="'/admin/siswa/tabungan/'+ item.id">
+                      <a href="#" @click="tabungans(item.id)" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded btn-sm"><i class="bi bi-eye-fill"></i></a> &nbsp;
+                    </router-link>
                       <router-link :to="'/admin/siswa/edit/'+ item.id">
                       <a href="#"  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded btn-sm"><i class="bi bi-pen-fill"></i></a> &nbsp;
                       </router-link>
@@ -81,7 +90,11 @@ export default {
       }
     });
   },
-
+  data(){
+     return{
+       no:0
+     }
+  },
   computed:{
     ...mapState('siswa',['siswa'])
   },
@@ -99,6 +112,9 @@ export default {
      },
      details(params){
       this.fetchsiswaid(params)
+     },
+     tabungans(params){
+         console.log(params)
      },
   }
 

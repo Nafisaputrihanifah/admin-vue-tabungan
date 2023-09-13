@@ -65,7 +65,6 @@ export default {
             nama:null,
             kelas:null,
             alamat:null,
-            add:null
           }
         }
     },

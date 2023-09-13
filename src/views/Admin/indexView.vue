@@ -17,7 +17,7 @@
                   <div>
                     <h3 class="text-sm text-gray-700">
                         <br>
-                       <b>Siswa : 3000</b> 
+                       <b>Siswa : {{ siswa.length }} </b> 
                       <br><br>
                     </h3>
                   </div>
@@ -57,7 +57,14 @@
 <script>
 import { ref } from "vue";
 import { onMounted } from "vue";
+import { mapActions, mapState } from 'vuex'
 export default {
+  computed:{
+    ...mapState('siswa',['siswa'])
+  },
+  mounted() {
+        this.$store.dispatch("siswa/fetchsiswa")
+  },
   setup(props, context) {
       onMounted(() => {
           try {

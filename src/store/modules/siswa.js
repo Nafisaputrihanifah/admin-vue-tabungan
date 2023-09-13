@@ -13,38 +13,45 @@ export default {
     actions: {
         async fetchsiswa({ commit }) {
             try {
-                const datasiswa = await axios.get("http://localhost:8000/api/siswa")
+                const datasiswa = await axios.get('https://tabungan-siswa-api.000webhostapp.com/api/siswa',{
+                    headers: {
+                        'Content-Type': 'application/json' 
+                    },
+                })
+                console.log(datasiswa)
                 commit('SET_siswa', datasiswa.data.data)
             } catch (error) {
-                alert("Ada error");
+                // alert("Ada error");
                 console.log(error);
             }
         },
         async fetchsiswaid({ commit },id) {
             try {
-                console.log(id)
-                const datasiswa = await axios.get(`http://localhost:8000/api/siswa/${id}`)
+                const datasiswa = await axios.get(`https://tabungan-siswa-api.000webhostapp.com/api/siswa/${id}`)
                 commit('SET_SINGLE_SISWA', datasiswa.data.data)
             } catch (error) {
                 alert("Ada error");
                 console.log(error);
             }
         },
-        async fetchsiswaadd({ commit },data) {
+        async fetchsiswaadd(context, student) {
             try {
-                console.log(data)
-                const datasiswa = await axios.post("http://localhost:8000/api/siswa",data)
-                commit('SET_siswa', datasiswa.data.data)
+            
+              const response = await axios.post('https://tabungan-siswa-api.000webhostapp.com/api/siswas/add',student,{
+                headers: {  'content-type': 'application/x-www-form-urlencoded' }
+              });
+              context.commit('SET_siswa', response.data);
             } catch (error) {
-                alert("Ada error");
-                console.log(error);
+                alert(error);
             }finally{
                 window.location.href = '/admin/siswa';
             }
-        },
-        async fectsiswadelete({ commit , getters },id) {
+          },
+
+         
+        async fectsiswadelete({ commit },id) {
             try {
-                const datasiswa = await axios.delete(`http://localhost:8000/api/siswa/${id}`)
+                const datasiswa = await axios.post(`https://tabungan-siswa-api.000webhostapp.com/api/siswas/delete/${id}`)
                 commit('SET_siswa', datasiswa)
             } catch (error) {
                 alert("id ini mempunyai relasi");
@@ -54,17 +61,16 @@ export default {
             }
         },
 
-
         async fecteditsiswa({ commit ,getters},data) {
+            console.log(getters.getsiswaid)
             try {
-                const datasiswa = await axios.put(`http://localhost:8000/api/siswa/${getters.getsiswaid.id}`,data)
-                commit('SET_siswa', datasiswa.data.data)
-            } catch (error) {
-                alert("Ada error");
-                console.log(error);
-            }finally{
-                window.location.href = '/admin/siswa';
-            }
+                const response = await axios.post(`https://tabungan-siswa-api.000webhostapp.com/api/siswas/edit/46`,data,{
+                  headers: {'content-type': 'application/x-www-form-urlencoded' }
+                });
+                context.commit('SET_siswa', response.data);
+              } catch (error) {
+                  alert(error);
+              }
         },
 
     },

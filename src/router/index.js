@@ -42,6 +42,17 @@ const router = createRouter({
       component: () => import('../views/Admin/siswa/CreateView.vue'),
     },
     {
+      path: '/admin/riwayat_tabungan',
+      name: 'RiwayatTabungan',
+      component: () => import('../views/Admin/riwayat_tabungan/IndexView.vue'),
+    },
+    {
+      path: '/admin/siswa/tabungan/:id',
+      name: 'RiwayatTabunganSiswa',
+      component: () => import('../views/Admin/tabungan_siswa/IndexView.vue'),
+      props:true
+    },
+    {
       path: '/admin/siswa/detail/:id',
       name: 'Siswadetail',
       component: () => import('../views/Admin/siswa/DetailView.vue'),

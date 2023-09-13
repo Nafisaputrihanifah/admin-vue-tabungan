@@ -20,7 +20,8 @@
     "vue": "^3.3.4",
     "vue-flickity": "^1.2.1",
     "vue-router": "^4.2.4",
-    "vuex": "^4.1.0"
+    "vuex": "^4.1.0",
+    "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {
     "@types/jquery": "^3.5.17",

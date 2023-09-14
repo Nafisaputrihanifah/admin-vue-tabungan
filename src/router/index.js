@@ -62,7 +62,7 @@ const router = createRouter({
       path: '/admin/siswa/edit/:id',
       name: 'SiswaEdit',
       component: () => import('../views/Admin/siswa/EditView.vue'),
-      props:true
+      props:true,
     },
   ]
 });

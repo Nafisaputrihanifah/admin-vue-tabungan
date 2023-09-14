@@ -57,19 +57,20 @@ export default {
                 alert("id ini mempunyai relasi");
                 console.log(error);
             }finally{
-                location.reload()
+                window.location.href = '/admin/siswa';
             }
         },
 
         async fecteditsiswa({ commit ,getters},data) {
-            console.log(getters.getsiswaid)
             try {
-                const response = await axios.post(`https://tabungan-siswa-api.000webhostapp.com/api/siswas/edit/46`,data,{
+                const response = await axios.post(`https://tabungan-siswa-api.000webhostapp.com/api/siswas/edit/${getters.getsiswaid.id}`,data,{
                   headers: {'content-type': 'application/x-www-form-urlencoded' }
                 });
-                context.commit('SET_siswa', response.data);
+                commit('SET_siswa', response.data);
               } catch (error) {
                   alert(error);
+              }finally{
+                window.location.href = '/admin/siswa';
               }
         },
 

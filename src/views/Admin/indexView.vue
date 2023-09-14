@@ -30,7 +30,7 @@
               <div>
                 <h3 class="text-sm text-gray-700">
                     <br>
-                   <b> Total Tabungan : 3000.000</b> 
+                   <b> Riwayat Tabungan   {{ tabungan.length }} </b> 
                   <br><br>
                 </h3>
               </div>
@@ -60,10 +60,12 @@ import { onMounted } from "vue";
 import { mapActions, mapState } from 'vuex'
 export default {
   computed:{
+    ...mapState('tabungan',['tabungan']),
     ...mapState('siswa',['siswa'])
   },
   mounted() {
         this.$store.dispatch("siswa/fetchsiswa")
+        this.$store.dispatch("tabungan/fetchtabungan")
   },
   setup(props, context) {
       onMounted(() => {

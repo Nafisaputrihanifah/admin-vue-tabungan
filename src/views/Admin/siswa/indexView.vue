@@ -58,7 +58,7 @@
                   </td>
                   <td class="px-6 py-4">
                     <router-link :to="'/admin/siswa/tabungan/'+ item.id">
-                      <a href="#" @click="tabungans(item.id)" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded btn-sm"><i class="bi bi-eye-fill"></i></a> &nbsp;
+                      <a href="#" @click="tabungans(item.id)" class="bg-green-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded btn-sm"><i class="bi bi-wallet"></i></a> &nbsp;
                     </router-link>
                       <router-link :to="'/admin/siswa/edit/'+ item.id">
                       <a href="#"  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded btn-sm"><i class="bi bi-pen-fill"></i></a> &nbsp;

@@ -3,18 +3,18 @@
     <br /><br /><br />
     <div class="list">
       <ul class="flex flex-wrap items-center text-gray-900 dark:text-white">
-        <li>
+        <li style="color: black;">
           <a href="#" class="mr-4 hover:underline md:mr-6">
             <i style="font-size: 20px" class="bi bi-house-door-fill"></i>
           </a>
         </li>
-        <li>
+        <li  style="color: black;">
           <a href="#" class="mr-4 hover:underline md:mr-6"
             ><i class="bi bi-arrow-right"></i
           ></a>
         </li>
-        <li>
-               <button  class="mr-4 hover:underline md:mr-6">Data Siswa</button>>
+        <li  style="color: black;">
+               <button  class="mr-4 hover:underline md:mr-6">Data Siswa</button>
         </li>
       </ul><br>
     </div>
@@ -25,38 +25,38 @@
       <table class="w-full text-sm text-left">
           <thead class="text-xs text-white uppercase bg-blue-600 border-b border-blue-400 dark:text-white">
               <tr>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class="px-6 py-3" style="color: black;">
                   No
                 </th>
-                  <th scope="col" class="px-6 py-3">
+                  <th scope="col" class="px-6 py-3" style="color: black;">
                       Nama
                   </th>
-                  <th scope="col" class="px-6 py-3">
+                  <th scope="col" class="px-6 py-3" style="color: black;">
                       Kelas
                   </th>
-                  <th scope="col" class="px-6 py-3">
+                  <th scope="col" class="px-6 py-3" style="color: black;">
                       Jurusan
                   </th>
-                  <th scope="col" class="px-6 py-3">
+                  <th scope="col" class="px-6 py-3" style="color: black;">
                       Action
                   </th>
               </tr>
           </thead>
           <tbody>
               <tr v-for="(item,index) in siswa" :key="item.id">
-                <td class="px-6 py-4">
+                <td class="px-6 py-4" style="color: black;">
                     {{ index+1 }}
                 </td>
-                  <th scope="row" class="px-6 py-4 font-medium  whitespace-nowrap dark:text-blue-100">
+                  <th  style="color: black;" scope="row" class="px-6 py-4 font-medium  whitespace-nowrap dark:text-blue-100">
                       {{ item.nama }}
                   </th>
-                  <td class="px-6 py-4">
+                  <td style="color: black;" class="px-6 py-4">
                     {{ item.kelas }}
                   </td>
-                  <td class="px-6 py-4">
-                    {{ item.alamat }}
+                  <td style="color: black;" class="px-6 py-4">
+                     <span style="color: black;">{{ item.alamat }}</span>
                   </td>
-                  <td class="px-6 py-4">
+                  <td style="color: black;" class="px-6 py-4">
                     <router-link :to="'/admin/siswa/tabungan/'+ item.id">
                       <a href="#" @click="tabungans(item.id)" class="bg-green-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded btn-sm"><i class="bi bi-wallet"></i></a> &nbsp;
                     </router-link>

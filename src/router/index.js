@@ -5,7 +5,7 @@ function cekToken(to, from, next) {
     next()
   } else {
     alert('Mohon login terlebih dahulu!')
-    next('/login')
+    next('/')
   }
 };
 function CekProfil(to, from, next) {

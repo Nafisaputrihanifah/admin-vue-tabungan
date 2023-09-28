@@ -24,45 +24,52 @@ const router = createRouter({
     {
       path: '/',
       name: 'Login',
-      component: () => import('../views/Admin/indexView.vue'),
+      component: () => import('../views/LoginView.vue'),
     },
     {
       path: '/admin/dashboard',
       name: 'Dashboard',
       component: () => import('../views/Admin/indexView.vue'),
+      beforeEnter: cekToken,
     },
     {
       path: '/admin/siswa',
       name: 'Siswa',
       component: () => import('../views/Admin/siswa/indexView.vue'),
+       beforeEnter: cekToken,
     },
     {
       path: '/admin/siswa/create',
       name: 'SiswaCreate',
       component: () => import('../views/Admin/siswa/CreateView.vue'),
+       beforeEnter: cekToken,
     },
     {
       path: '/admin/riwayat_tabungan',
       name: 'RiwayatTabungan',
       component: () => import('../views/Admin/riwayat_tabungan/IndexView.vue'),
+      beforeEnter: cekToken,
     },
     {
       path: '/admin/siswa/tabungan/:id',
       name: 'RiwayatTabunganSiswa',
       component: () => import('../views/Admin/tabungan_siswa/IndexView.vue'),
-      props:true
+      props:true,
+      beforeEnter: cekToken,
     },
     {
       path: '/admin/siswa/detail/:id',
       name: 'Siswadetail',
       component: () => import('../views/Admin/siswa/DetailView.vue'),
-      props:true
+      props:true,
+      beforeEnter: cekToken,
     },
     {
       path: '/admin/siswa/edit/:id',
       name: 'SiswaEdit',
       component: () => import('../views/Admin/siswa/EditView.vue'),
       props:true,
+      beforeEnter: cekToken,
     },
   ]
 });

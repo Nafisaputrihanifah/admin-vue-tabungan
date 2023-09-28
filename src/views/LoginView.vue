@@ -15,7 +15,7 @@
         <hr />
         <br />
         <div class="form">
-          <form action="">
+          <form @submit.prevent="performLogin">
             <div>
               <label
                 for="email"
@@ -25,6 +25,7 @@
               <input
                 type="email"
                 name="email"
+                v-model="email"
                 id="email"
                 class="mb-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                 placeholder="email@contoh.com"
@@ -41,6 +42,7 @@
                 type="password"
                 name="password"
                 id="password"
+                v-model="password"
                 class="mb-7 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                 placeholder="........."
                 required
@@ -58,3 +60,30 @@
     </div>
   </center>
 </template>
+
+<script>
+import { mapActions } from "vuex";
+export default {
+  data() {
+    return {
+      email: "",
+      password: "",
+    };
+  },
+  methods: {
+    ...mapActions("auth", ["login"]),
+    async performLogin() {
+      const credentials = {
+        email: this.email,
+        password: this.password,
+      };
+      const success = await this.login(credentials);
+      if (success) {
+        this.$router.push('/admin/dashboard');
+      } else {
+        alert("gagal");
+      }
+    },
+  },
+};
+</script>

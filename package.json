@@ -1,9 +1,9 @@
 {
-  "name": "devinferdynnad",
+  "name": "nafisa",
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "author": "devinferdynand kelas rpl 1",
+  "author": "nafisa kelas rpl 1",
   "description": "Kang Mohon maaf saya Belum Beres Baru segini , karena tidak pake template :)",
   "scripts": {
     "dev": "vite",
